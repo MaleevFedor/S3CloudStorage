@@ -23,6 +23,13 @@ class UserEntity(
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    var role: Role = Role.USER
+    var role: Role = Role.USER,
+
+    @Column(name = "used_bytes", nullable = false)
+    var usedBytes: Long = 0L,
+
+    @Column(name = "reserved_bytes", nullable = false)
+    var reservedBytes: Long = 0L,
+
 ){
 }
