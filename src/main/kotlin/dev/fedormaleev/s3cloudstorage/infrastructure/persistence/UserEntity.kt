@@ -1,5 +1,6 @@
 package dev.fedormaleev.s3cloudstorage.infrastructure.persistence
 
+import dev.fedormaleev.s3cloudstorage.domain.model.pricing.StoragePlan
 import dev.fedormaleev.s3cloudstorage.domain.model.user.Role
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -25,11 +26,17 @@ class UserEntity(
     @Column(nullable = false, length = 20)
     var role: Role = Role.USER,
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "plan", nullable = false)
+    var plan: StoragePlan = StoragePlan.FREE,
+
+
+    //TODO insure user can't exceed this limit
     @Column(name = "used_bytes", nullable = false)
     var usedBytes: Long = 0L,
 
     @Column(name = "reserved_bytes", nullable = false)
     var reservedBytes: Long = 0L,
 
-){
+    ){
 }

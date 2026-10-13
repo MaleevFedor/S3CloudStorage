@@ -22,4 +22,13 @@ class GlobalExceptionHandler {
                 )
             )
     }
+
+    @ExceptionHandler(UserNotFoundInDb::class)
+    fun handleUserNotFoundInDb(ex: UserNotFoundInDb): ResponseEntity<ErrorResponse> {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+            .body(ErrorResponse(
+                status = 401,
+                message = "User not found in database"
+            ))
+    }
 }
