@@ -2,7 +2,7 @@ package dev.fedormaleev.s3cloudstorage.application.storage
 
 import dev.fedormaleev.s3cloudstorage.infrastructure.common.error.UserNotFoundInDb
 import dev.fedormaleev.s3cloudstorage.infrastructure.persistence.UserRepository
-import dev.fedormaleev.s3cloudstorage.interfaces.storage.dto.StorageQuotaResponse
+import dev.fedormaleev.s3cloudstorage.application.storage.dto.StorageQuotaResponse
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.UUID
